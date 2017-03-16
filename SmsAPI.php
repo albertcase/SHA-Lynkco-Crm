@@ -3,7 +3,7 @@
 class SmsAPI {
 
     public function sendMessage($mobile, $message){
-        api_url = 'http://ums.zj165.com:8888/sms/Api/Send.do';
+        $api_url = 'http://ums.zj165.com:8888/sms/Api/Send.do';
         // 参数数组
         $data = array(
             'SpCode'=>'236897',
