@@ -102,16 +102,17 @@ class PageController extends Controller {
 	}
 
 	private function sendData($name, $tel, $extDescription) {
-		$url = "http://120.27.136.31:8086/LeadApiGroup";
+		$url = WS_URL;
 		$lead = array('name'=>$name,'cellPhone1'=>$tel,'extDescription'=>$extDescription);
 		$lead1 = json_encode($lead);
 		$leadSource = array('name'=>'官网','code'=>'Official_Site');
 		$leadSource1 = json_encode($leadSource);
-		$data = array('_api_name'=>'LeadAssortedOemService.createOriginLead', '_api_version'=>'1.0.0','_api_access_key'=>'de8cc2d4745e4b64ae4d46904d9b38cd','leadWithCarCodeDto'=>$lead1,'leadSource'=>$leadSource1,'leadType'=>'0');
-		$api = "LeadAssortedOemService.createOriginLead"; 
-		$version = '1.0.0';
-		$ak = 'de8cc2d4745e4b64ae4d46904d9b38cd';
-		$sk = 'iZlNm7cvWb0e5zWvk71NzC3V6fg=';
+		$ak = CSB_AK;
+		$sk = CSB_SK;
+		$api = CSB_API;
+		$api_name = CSB_API_NAME;
+		$version = CSB_VERSION;
+		$data = array('_api_name'=>$api_name, '_api_version' => $version,'_api_access_key' => $ak,'leadWithCarCodeDto'=>$lead1,'leadSource'=>$leadSource1,'leadType'=>'0');
 		$phpCaller = new \Lib\HttpcallerAPI();
 
 		$result = $phpCaller->doPost($url, $data, $api, $version, $ak, $sk); 
