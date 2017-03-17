@@ -62,12 +62,13 @@ class PageController extends Controller {
 		$request = $this->request;
 		$fields = array(
 			'q1' => array('notnull', '120'),
-			'q2' => array('notnull', '120'),
-			'q3' => array('notnull', '120'),
-			'name' => array('notnull', '120'),
-			'cel' => array('notnull', '120'),
-			'code' => array('notnull', '120'),
+			'q2' => array('notnull', '121'),
+			'q3' => array('notnull', '122'),
+			'name' => array('notnull', '124'),
+			'tel' => array('notnull', '125'),
+			'code' => array('notnull', '126'),
 		);
+		
 		$request->validation($fields);
 		$q1 = $request->request->get('q1');
 		$q2 = $request->request->get('q2');
@@ -79,6 +80,7 @@ class PageController extends Controller {
 			$data = array('status' => 2, 'msg' => '验证码不正确');
 			$this->dataPrint($data);
 		}
+		
 		unset($_SESSION['check_timestamp']);
 		unset($_SESSION['check_code']);
 		$answer = array();
@@ -88,8 +90,6 @@ class PageController extends Controller {
 		$extDescription = json_encode($answer);
 		$rs = $this->sendData($name, $tel, $extDescription);
 		$rs = json_decode($rs);
-		var_dump($rs);
-		exit;
 		if ($rs->code == 200) {
 			$data = array('status' => 1, 'msg' => '提交成功');
 			$this->dataPrint($data);
