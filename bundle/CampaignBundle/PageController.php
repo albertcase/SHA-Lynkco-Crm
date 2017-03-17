@@ -47,6 +47,8 @@ class PageController extends Controller {
 		$code = mt_rand(100000, 999999);
 		$_SESSION['check_code'] = $code;
 		$SmsAPI->sendMessage($mobile, $code);
+		$data = array('status' => 1, 'msg' => '发送成功');
+		$this->dataPrint($data);
 		exit;
 
 	}
