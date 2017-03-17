@@ -10,7 +10,7 @@ class SmsAPI extends Base {
             'SpCode'=>'236897',
             'LoginName'=>'zj_jlkg',
             'Password'=>'cma2016',
-            'MessageContent'=>mb_convert_encoding('您本次操作的验证码为'.$message.',1分钟内输入有效', 'gbk', 'utf-8'),
+            'MessageContent'=>mb_convert_encoding('您本次操作的验证码为'.$message.'，5分钟内输入有效', 'gbk', 'utf-8'),
             'UserNumber'=>$mobile,
             'SerialNumber'=>time(),
             'ScheduleTime'=>date("YmdHis")
