@@ -37,7 +37,7 @@ class PageController extends Controller {
 	
 
 	public function smsAction() {
-		if (isset($_SESSION['check_timestamp']) &&time() <= ( $_SESSION['check_timestamp']+10)) {
+		if (isset($_SESSION['check_timestamp']) &&time() <= ( $_SESSION['check_timestamp']+60)) {
 			$data = array('status' => 0, 'msg' => '请勿重复调用');
 			$this->dataPrint($data);
 		}
@@ -52,7 +52,7 @@ class PageController extends Controller {
 		$_SESSION['check_code'] = $code;
 		$_SESSION['check_timestamp'] = time();
 		$rs = $SmsAPI->sendMessage($mobile, $code);
-		if ($rs == 0) 
+		if ($rs['result'] == 0) 
 			$data = array('status' => 1, 'msg' => $rs['description']);
 		else
 			$data = array('status' => $rs['result'], 'msg' => $rs['description']);
