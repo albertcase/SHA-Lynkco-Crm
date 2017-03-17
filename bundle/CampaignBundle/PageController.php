@@ -89,6 +89,7 @@ class PageController extends Controller {
 		$rs = $this->sendData($name, $tel, $extDescription);
 		$rs = json_decode($rs);
 		var_dump($rs);
+		exit;
 		if ($rs->code == 200) {
 			$data = array('status' => 1, 'msg' => '提交成功');
 			$this->dataPrint($data);
