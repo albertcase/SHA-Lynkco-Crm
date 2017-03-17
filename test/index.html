@@ -164,7 +164,7 @@
             o.html("<em>点击获取</em>");
             wait = 60;
         } else { 
-            // o.addClass("disabled");
+            o.addClass("disabled");
             o.html("<em>重新发送(" + wait + ")</em>");
             wait--;
             setTimeout(function() {
@@ -220,25 +220,24 @@
     // 发送验证码
     $(".getcode").on("click", function(){
         var self = $(this);
-        if(self.hasClass("disabled")) return false;
+        if(self.hasClass("disabled") || self.hasClass("current")) return false;
         var gtel = $("input[name=tel]").val();
         
         if(!gtel || !_v.isPhoneNum(gtel)){
             pfun.formErrorTips("手机输入有误！");
         }else{
-            self.addClass("disabled");
-
+            self.addClass("current");
             pfun.ajaxFun("POST", "/api/sms", {
                 'mobile': gtel
             }, "json", function(data){
 
+                pfun.formErrorTips(data.msg);
+
                 if(data.status == "1"){
                    time(self);
-                }else{
-                   pfun.formErrorTips("发送失败！");
-                   self.removeClass("disabled");
                 }
                 
+                self.removeClass("current");
             });
 
         }
@@ -270,10 +269,8 @@
                 if(data.status == "1"){
                    console.log(question);
                    _v.sectionChange("result"); 
-                }else{
-                   pfun.formErrorTips("提交失败！");
                 }
-
+                pfun.formErrorTips(data.msg);
                 self.removeClass("disabled");
             });
 
