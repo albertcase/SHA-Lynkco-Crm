@@ -33,7 +33,7 @@ class PageController extends Controller {
 	
 
 	public function smsAction() {
-		if (isset($_SESSION['check_code']) && $_SESSION['check_code']!='') {
+		if (isset($_SESSION['check_timestamp']) && $_SESSION['check_timestamp'] <= (time()+60)) {
 			$data = array('status' => 0, 'msg' => '请勿重复调用');
 			$this->dataPrint($data);
 		}
@@ -46,6 +46,7 @@ class PageController extends Controller {
 		$SmsAPI = new \Lib\SmsAPI();
 		$code = mt_rand(100000, 999999);
 		$_SESSION['check_code'] = $code;
+		$_SESSION['check_timestamp'] = time();
 		$SmsAPI->sendMessage($mobile, $code);
 		$data = array('status' => 1, 'msg' => '发送成功');
 		$this->dataPrint($data);
@@ -78,6 +79,8 @@ class PageController extends Controller {
 			$data = array('status' => 2, 'msg' => '验证码不正确');
 			$this->dataPrint($data);
 		}
+		unset($_SESSION['check_timestamp']);
+		unset($_SESSION['check_code']);
 		$answer = array();
 		$answer[] = array('question'=>'您是否愿意见证一个全新汽车品牌的诞生？', 'answer'=>$q1);
 		$answer[] = array('question'=>'您是否计划购买一辆新车？', 'answer'=>$q2);
