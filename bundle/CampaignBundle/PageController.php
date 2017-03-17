@@ -42,7 +42,7 @@ class PageController extends Controller {
 			'mobile' => array('cellphone', '120'),
 		);
 		$request->validation($fields);
-		$mobile = $request->query->get('mobile');
+		$mobile = $request->request->get('mobile');
 		$SmsAPI = new \Lib\SmsAPI();
 		$code = mt_rand(100000, 999999);
 		$_SESSION['check_code'] = $code;
@@ -66,12 +66,12 @@ class PageController extends Controller {
 			'code' => array('notnull', '120'),
 		);
 		$request->validation($fields);
-		$q1 = $request->query->get('q1');
-		$q2 = $request->query->get('q2');
-		$q3 = $request->query->get('q3');
-		$name = $request->query->get('name');
-		$tel = $request->query->get('tel');
-		$code = $request->query->get('code');
+		$q1 = $request->request->get('q1');
+		$q2 = $request->request->get('q2');
+		$q3 = $request->request->get('q3');
+		$name = $request->request->get('name');
+		$tel = $request->request->get('tel');
+		$code = $request->request->get('code');
 		if ($code != $_SESSION['check_code']) {
 			$data = array('status' => 2, 'msg' => '验证码不正确');
 			$this->dataPrint($data);
