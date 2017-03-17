@@ -3,5 +3,5 @@
 .vagrant
 puppet/
 node_modules/
-build/assets/
-
+build/
+test/
