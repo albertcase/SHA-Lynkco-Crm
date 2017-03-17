@@ -23,9 +23,9 @@
         code: ""
     };
 
-    
+    $(".loading").css({"visibility": "hidden"});
     pfun.loadingFnDoing(allimg, function(){
-        $(".loading").css({"visibility": "hidden"});
+        // $(".loading").css({"visibility": "hidden"});
         pfun.overscroll(document.querySelector(".formContent")); 
         _v.sectionChange("index");
         // pfun.init();
