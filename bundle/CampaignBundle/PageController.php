@@ -10,6 +10,9 @@ class PageController extends Controller {
 	}
 
 	public function testAction() {	
+		$str = "result=32&description=同一号码发送次数太多,一天内手机号码验证码最大发送次数:5,当前次数为:5";
+		parse_str($str,$new);
+		var_dump($new);
 		exit;
 		$SmsAPI = new \Lib\SmsAPI();
 		echo $SmsAPI->sendMessage('15121038676','abcdef');
@@ -34,7 +37,7 @@ class PageController extends Controller {
 	
 
 	public function smsAction() {
-		if (isset($_SESSION['check_timestamp']) &&time() <= ( $_SESSION['check_timestamp']+60)) {
+		if (isset($_SESSION['check_timestamp']) &&time() <= ( $_SESSION['check_timestamp']+10)) {
 			$data = array('status' => 0, 'msg' => '请勿重复调用');
 			$this->dataPrint($data);
 		}
@@ -49,7 +52,11 @@ class PageController extends Controller {
 		$_SESSION['check_code'] = $code;
 		$_SESSION['check_timestamp'] = time();
 		$rs = $SmsAPI->sendMessage($mobile, $code);
-		$data = array('status' => 1, 'msg' => $rs);
+		if ($rs == 1) {
+			$data = array('status' => 1, 'msg' => $rs['description']);
+			$this->dataPrint($data);
+		}
+		$data = array('status' => $rs['result'], 'msg' => $rs['description']);
 		$this->dataPrint($data);
 
 	}

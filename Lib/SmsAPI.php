@@ -25,7 +25,9 @@ class SmsAPI extends Base {
         curl_setopt ( $ch, CURLOPT_POSTFIELDS, http_build_query($data) );
         $return = curl_exec ( $ch );
         curl_close ( $ch );
-        return $return;
+        $return = \mb_convert_encoding($return, 'utf-8', 'gbk');
+        \parse_str($return, $new);
+        return $new;
     }
 
 }
