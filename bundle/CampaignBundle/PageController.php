@@ -10,9 +10,10 @@ class PageController extends Controller {
 	}
 
 	public function testAction() {	
-		
-		//$SmsAPI = new \Lib\SmsAPI();
-		//echo $SmsAPI->sendMessage('15121038676','abcdef');
+		exit;
+		$SmsAPI = new \Lib\SmsAPI();
+		echo $SmsAPI->sendMessage('15121038676','abcdef');
+		exit;
 		$url = "http://120.27.136.31:8086/LeadApiGroup";
 		$lead = array('name'=>'测试','cellPhone1'=>'15121038676','extDescription'=>'{ [ {"question": "你有车吗", "answer": "没有"}, { "question": "你有车吗", "answer": "没有" }, { "question": "你有车吗", "answer": "没有"}]}');
 		$lead1 = json_encode($lead);
@@ -47,10 +48,9 @@ class PageController extends Controller {
 		$code = mt_rand(100000, 999999);
 		$_SESSION['check_code'] = $code;
 		$_SESSION['check_timestamp'] = time();
-		$SmsAPI->sendMessage($mobile, $code);
-		$data = array('status' => 1, 'msg' => '发送成功');
+		$rs = $SmsAPI->sendMessage($mobile, $code);
+		$data = array('status' => 1, 'msg' => $rs);
 		$this->dataPrint($data);
-		exit;
 
 	}
 
