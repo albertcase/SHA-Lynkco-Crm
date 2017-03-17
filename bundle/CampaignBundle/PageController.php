@@ -52,11 +52,10 @@ class PageController extends Controller {
 		$_SESSION['check_code'] = $code;
 		$_SESSION['check_timestamp'] = time();
 		$rs = $SmsAPI->sendMessage($mobile, $code);
-		if ($rs == 1) {
+		if ($rs == 0) 
 			$data = array('status' => 1, 'msg' => $rs['description']);
-			$this->dataPrint($data);
-		}
-		$data = array('status' => $rs['result'], 'msg' => $rs['description']);
+		else
+			$data = array('status' => $rs['result'], 'msg' => $rs['description']);
 		$this->dataPrint($data);
 
 	}
