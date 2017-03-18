@@ -10,28 +10,20 @@ class PageController extends Controller {
 	}
 
 	public function testAction() {	
-		$str = "result=32&description=同一号码发送次数太多,一天内手机号码验证码最大发送次数:5,当前次数为:5";
-		parse_str($str,$new);
-		var_dump($new);
-		exit;
-		$SmsAPI = new \Lib\SmsAPI();
-		echo $SmsAPI->sendMessage('15121038676','abcdef');
-		exit;
-		$url = "http://120.27.136.31:8086/LeadApiGroup";
-		$lead = array('name'=>'测试','cellPhone1'=>'15121038676','extDescription'=>'{ [ {"question": "你有车吗", "answer": "没有"}, { "question": "你有车吗", "answer": "没有" }, { "question": "你有车吗", "answer": "没有"}]}');
-		$lead1 = json_encode($lead);
-		$leadSource = array('name'=>'官网','code'=>'Official_Site');
-		$leadSource1 = json_encode($leadSource);
-		$data = array('_api_name'=>'LeadAssortedOemService.createOriginLead', '_api_version'=>'1.0.0','_api_access_key'=>'de8cc2d4745e4b64ae4d46904d9b38cd','leadWithCarCodeDto'=>$lead1,'leadSource'=>$leadSource1,'leadType'=>'0');
-		$api = "LeadAssortedOemService.createOriginLead"; 
-		$version = '1.0.0';
-		$ak = 'de8cc2d4745e4b64ae4d46904d9b38cd';
-		$sk = 'iZlNm7cvWb0e5zWvk71NzC3V6fg=';
-		$phpCaller = new \Lib\HttpcallerAPI();
-
-		$result = $phpCaller->doPost($url, $data, $api, $version, $ak, $sk); 
-		echo $result;
-
+		$q1 = '后续关注';
+		$q2 = '暂时没有';
+		$q3 = '以后再说';
+		$name = 'demon';
+		$tel = '15121038676';
+		$answer = array();
+		$answer[] = array('question'=>'您是否愿意见证一个全新汽车品牌的诞生？', 'answer'=>$q1);
+		$answer[] = array('question'=>'您是否计划购买一辆新车？', 'answer'=>$q2);
+		$answer[] = array('question'=>'您是否愿意到LYNK & CO的活动现场先睹为快？', 'answer'=>$q3);
+		//$extDescription = json_encode($answer);
+		$extDescription = $answer;
+		$srcExtDesc = array("media"=>"自建媒体","action"=>"市场活动","terminal"=>"H5");
+		$rs = $this->sendData($name, $tel, $extDescription, $srcExtDesc);
+		var_dump($rs);
 		exit;
 	}
 	
@@ -89,13 +81,13 @@ class PageController extends Controller {
 		
 		unset($_SESSION['check_timestamp']);
 		unset($_SESSION['check_code']);
-		//$answer = array();
-		//$answer[] = array('question'=>'您是否愿意见证一个全新汽车品牌的诞生？', 'answer'=>$q1);
-		//$answer[] = array('question'=>'您是否计划购买一辆新车？', 'answer'=>$q2);
-		//$answer[] = array('question'=>'您是否愿意到LYNK & CO的活动现场先睹为快？', 'answer'=>$q3);
+		$answer = array();
+		$answer[] = array('question'=>'您是否愿意见证一个全新汽车品牌的诞生？', 'answer'=>$q1);
+		$answer[] = array('question'=>'您是否计划购买一辆新车？', 'answer'=>$q2);
+		$answer[] = array('question'=>'您是否愿意到LYNK & CO的活动现场先睹为快？', 'answer'=>$q3);
 		//$extDescription = json_encode($answer);
-		$extDescription = '{[{"question":"您是否愿意见证一个全新汽车品牌的诞生？","answer":"'.$q1.'"}],[{"question":"您是否计划购买一辆新车？","answer":"'.$q2.'"}],[{"question":"您是否愿意到LYNK & CO的活动现场先睹为快？","answer":"'.$q3.'"}]}';
-		$srcExtDesc = '{"media":"自建媒体","action":"市场活动","terminal":"H5"}';
+		$extDescription = $answer;
+		$srcExtDesc = array("media"=>"自建媒体","action"=>"市场活动","terminal"=>"H5");
 		$rs = $this->sendData($name, $tel, $extDescription, $srcExtDesc);
 		$rs = json_decode($rs);
 		if ($rs->code == 200) {
