@@ -18,7 +18,8 @@ class PageController extends Controller {
 		$request->validation($fields);
 		$url = urldecode($request->request->get('url'));
 	  	$json = file_get_contents("http://lynkcoceo.samesamechina.com/jssdk?url=".$url);
-	  	$this->dataPrint($json);
+	  	echo $json;
+	  	exit;
 	}
 
 	public function testAction() {	
