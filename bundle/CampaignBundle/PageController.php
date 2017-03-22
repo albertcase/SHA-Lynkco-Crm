@@ -9,6 +9,18 @@ class PageController extends Controller {
 		$this->render('index');
 	}
 
+	public function jssdkConfigJsAction() {
+		ini_set("display_errors",1);
+		$request = $this->Request();
+		$fields = array(
+		    'url' => array('notnull', '120'),
+	    );
+		$request->validation($fields);
+		$url = urldecode($request->query->get('url'));
+	  	$json = file_get_contents("http://lynkcoceo.samesamechina.com/jssdk?url=".$url);
+	  	return $this->Response($json);
+	}
+
 	public function testAction() {	
 		$q1 = '后续关注';
 		$q2 = '暂时没有';
