@@ -16,7 +16,7 @@ class PageController extends Controller {
 		    'url' => array('notnull', '120'),
 	    );
 		$request->validation($fields);
-		$url = urldecode($request->query->get('url'));
+		$url = urldecode($request->request->get('url'));
 	  	$json = file_get_contents("http://lynkcoceo.samesamechina.com/jssdk?url=".$url);
 	  	return $this->Response($json);
 	}
