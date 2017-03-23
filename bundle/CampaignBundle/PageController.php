@@ -34,8 +34,8 @@ class PageController extends Controller {
 		$answer[] = array('question'=>'您是否愿意到LYNK & CO的活动现场先睹为快？', 'answer'=>$q3);
 		//$extDescription = json_encode($answer);
 		$extDescription = $answer;
-		$srcExtDesc = array("media"=>"自建媒体","action"=>"市场活动","terminal"=>"H5");
-		$rs = $this->sendData($name, $tel, $extDescription, $srcExtDesc);
+		//$srcExtDesc = array("media"=>"自建媒体","behavior"=>"市场活动","terminal"=>"H5");
+		$rs = $this->sendData($name, $tel, $extDescription);
 		var_dump($rs);
 		exit;
 	}
@@ -100,8 +100,8 @@ class PageController extends Controller {
 		$answer[] = array('question'=>'您是否愿意到LYNK & CO的活动现场先睹为快？', 'answer'=>$q3);
 		//$extDescription = json_encode($answer);
 		$extDescription = $answer;
-		$srcExtDesc = array("media"=>"自建媒体","action"=>"市场活动","terminal"=>"H5");
-		$rs = $this->sendData($name, $tel, $extDescription, $srcExtDesc);
+		//$srcExtDesc = array("media"=>"自建媒体","behavior"=>"市场活动","terminal"=>"H5",'extId'=>'20170405133200');
+		$rs = $this->sendData($name, $tel, $extDescription);
 		$rs = json_decode($rs);
 		if ($rs->code == 200) {
 			$data = array('status' => 1, 'msg' => '提交成功');
@@ -114,11 +114,11 @@ class PageController extends Controller {
 
 	}
 
-	private function sendData($name, $tel, $extDescription, $srcExtDesc) {
+	private function sendData($name, $tel, $extDescription) {
 		$url = WS_URL;
-		$lead = array('name'=>$name,'cellPhone1'=>$tel,'extDescription'=>$extDescription, 'srcExtDesc'=>$srcExtDesc);
+		$lead = array('name'=>$name,'cellPhone1'=>$tel,'extDescription'=>$extDescription);
 		$lead1 = json_encode($lead);
-		$leadSource = array('name'=>'市场活动','code'=>'Market_Activity','extId'=>'20170405133200');
+		$leadSource = array("media"=>"自建媒体","behavior"=>"市场活动","terminal"=>"H5",'extId'=>'20170405133200');
 		$leadSource1 = json_encode($leadSource);
 		$ak = CSB_AK;
 		$sk = CSB_SK;
