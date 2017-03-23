@@ -118,7 +118,7 @@ class PageController extends Controller {
 		$url = WS_URL;
 		$lead = array('name'=>$name,'cellPhone1'=>$tel,'extDescription'=>$extDescription);
 		$lead1 = json_encode($lead);
-		$leadSource = array("media"=>"自建媒体","behavior"=>"市场活动","terminal"=>"H5",'extId'=>'20170405133200');
+		$leadSource = array("media"=>"self_media","behavior"=>"market_activity","terminal"=>"h5",'extId'=>'20170405133200');
 		$leadSource1 = json_encode($leadSource);
 		$ak = CSB_AK;
 		$sk = CSB_SK;
