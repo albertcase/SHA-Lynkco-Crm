@@ -1,0 +1,302 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>LYNK & CO创始用户</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <!-- uc强制竖屏 -->
+    <meta name="screen-orientation" content="landscape">
+    <!-- QQ强制竖屏 -->
+    <meta name="x5-orientation" content="landscape">
+
+    <link rel="apple-touch-startup-image" href="/build/assets/img/bg1.png" />
+
+    <!--禁用手机号码链接(for iPhone)-->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0,minimum-scale=1.0,maximum-scale=1.0,minimal-ui" />
+    <!--自适应设备宽度-->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!--控制全屏时顶部状态栏的外，默认白色-->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="Keywords" content="">
+    <meta name="Description" content="...">
+    <link rel="stylesheet" type="text/css" href="/build/assets/css/main.min.css">
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?53c8cfa2e17a4782c70738736fe615f2";
+          var s = document.getElementsByTagName("script")[0]; 
+          s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+<body>
+<div class="loading">
+    <!-- <div class="loading_con">
+        <div class="dotAni">
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+        </div>
+      <p>loading...</p>
+    </div> -->
+</div>
+
+
+
+
+<!-- 横屏代码 -->
+<div id="orientLayer" class="mod-orient-layer">
+    <div class="mod-orient-layer__content">
+        <i class="icon mod-orient-layer__icon-orient"></i>
+        <div class="mod-orient-layer__desc">为了更好的体验，请解锁横屏浏览<br><em>建议全程在wifi环境下观看</em></div>
+    </div>
+</div>
+
+<div id="dreambox">
+    <div class="section" id="index">
+        <div class="con ycenter">
+            <div class="indexText">
+                <a href="javascript:void(0);" class="btn indexBtn"></a>
+                <img src="/build/assets/img/index-text.png" width="100%">
+            </div>   
+        </div>
+    </div>
+
+    <div class="section" id="q1">
+        <div class="questionCon">
+            <ul>
+                <li data-val="愿意"></li>
+                <li data-val="后续关注"></li>
+            </ul>
+            <a href="javascript:void(0);" class="btn q1Btn"></a>
+            <img src="/build/assets/img/q1.png" width="100%">
+        </div>
+    </div>
+
+    <div class="section" id="q2">
+        <div class="questionCon">
+            <ul>
+                <li data-val="是的"></li>
+                <li data-val="暂时没有"></li>
+            </ul>
+            <a href="javascript:void(0);" class="btn q2Btn"></a>
+            <img src="/build/assets/img/q2.png" width="100%">
+        </div>
+    </div>
+
+    <div class="section" id="q3">
+        <div class="questionCon">
+            <ul>
+                <li data-val="当然"></li>
+                <li data-val="以后再说"></li>
+            </ul>
+            <a href="javascript:void(0);" class="btn q3Btn"></a>
+            <img src="/build/assets/img/q3.png" width="100%">
+        </div>
+    </div>
+
+    <div class="section" id="form">
+        <div class="formContent">
+            <div class="formCon">
+                <ul>
+                    <li>
+                        <input type="text" name="name" placeholder="姓名">
+                    </li>
+                    <li>
+                        <input type="tel" maxlength="11" name="tel" placeholder="手机">
+                    </li>
+                    <li>
+                        <input type="text" maxlength="6" name="code" class="code" placeholder="验证码"><span class="getcode ycenter"><em>点击获取</em></span>
+                    </li>
+                </ul>
+                <a href="javascript:void(0);" class="btn formBtn"></a>
+                <img src="/build/assets/img/form.png" width="100%">
+            </div>
+        </div> 
+    </div>
+
+    <div class="section" id="result">
+        <div class="con ycenter">
+            <div class="resultCon">
+                <a href="tel:4006-010101" class="telllink"></a>
+                <img src="/build/assets/img/result.png" width="100%">
+            </div>  
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="/build/assets/js/main.min.js"></script>
+<script type="text/javascript">
+    var allimg = [
+        "/build/assets/img/bg1.jpg",
+        "/build/assets/img/bg2.jpg",
+        "/build/assets/img/bg3.jpg",
+        "/build/assets/img/bg4.jpg",
+        "/build/assets/img/bg5.jpg",
+        "/build/assets/img/bg6.jpg",
+
+        "/build/assets/img/form.png",
+        "/build/assets/img/index-text.png",
+        "/build/assets/img/q1.png",
+        "/build/assets/img/q2.png",
+        "/build/assets/img/q3.png",
+        "/build/assets/img/result.png",
+    ],
+    question = {
+        q1: "",
+        q2: "",
+        q3: "",
+        name: "",
+        tel: "",
+        code: ""
+    };
+
+    $(".loading").css({"visibility": "hidden"});
+    pfun.loadingFnDoing(allimg, function(){
+        // $(".loading").css({"visibility": "hidden"});
+        pfun.overscroll(document.querySelector(".formContent")); 
+        _v.sectionChange("index");
+        pfun.init();
+
+        // Setup FastClick.
+        FastClick.attach(document.body);
+    })
+
+    // 倒计时方法
+    var wait = 60;
+    function time(o) {
+        if (wait == 0) {
+            o.removeClass("disabled");            
+            o.html("<em>点击获取</em>");
+            wait = 60;
+        } else { 
+            o.addClass("disabled");
+            o.html("<em>重新发送(" + wait + ")</em>");
+            wait--;
+            setTimeout(function() {
+                time(o)
+            },
+            1000)
+        }
+    }
+
+
+
+
+
+    $(".indexBtn").on("click", function(){
+        _v.sectionChange("q1");
+    })
+
+
+    $(".questionCon li").on("click", function(){
+        $(".questionCon li").removeClass("hover");
+        $(this).addClass("hover");
+        var curquestiontype = $(this).parents(".section").attr("id");
+        // question[curquestiontype] = parseInt($(this).index(), 10) + 1;
+        question[curquestiontype] = $(this).attr("data-val");
+    })
+
+    $(".q1Btn").on("click", function(){
+        if(!question['q1']){
+            pfun.formErrorTips("请选择问题的答案，此题为必选!");
+        }else{
+            _v.sectionChange("q2");
+        }
+    })
+
+    $(".q2Btn").on("click", function(){
+        if(!question['q2']){
+            pfun.formErrorTips("请选择问题的答案，此题为必选!");
+        }else{
+            _v.sectionChange("q3");
+        }
+    })
+
+    $(".q3Btn").on("click", function(){
+        if(!question['q3']){
+            pfun.formErrorTips("请选择问题的答案，此题为必选!");
+        }else{
+            console.log(question);
+            _v.sectionChange("form");
+        }
+    })
+
+
+    // 发送验证码
+    $(".getcode").on("click", function(){
+        var self = $(this);
+        if(self.hasClass("disabled") || self.hasClass("current")) return false;
+        var gtel = $("input[name=tel]").val();
+        
+        if(!gtel || !_v.isPhoneNum(gtel)){
+            pfun.formErrorTips("手机输入有误！");
+        }else{
+            self.addClass("current");
+            pfun.ajaxFun("POST", "/api/sms", {
+                'mobile': gtel
+            }, "json", function(data){
+
+                pfun.formErrorTips(data.msg);
+
+                if(data.status == "1"){
+                   time(self);
+                }
+                
+                self.removeClass("current");
+            });
+
+        }
+        
+    })
+
+
+    
+
+    $(".formBtn").on("click", function(){
+        var self = $(this);
+        if(self.hasClass("disabled")) return false;
+        
+        question["name"] = $("input[name=name]").val();
+        question["tel"] = $("input[name=tel]").val();
+        question["code"] = $("input[name=code]").val();
+
+        if(!question["name"]){
+            pfun.formErrorTips("姓名不能为空！");
+        }else if(!question["tel"] || !_v.isPhoneNum(question["tel"])){
+            pfun.formErrorTips("手机输入有误！");
+        }else if(!question["code"] || question["code"].length != 6){
+            pfun.formErrorTips("验证码输入有误！");
+        }else{
+            
+            self.addClass("disabled");
+
+            pfun.ajaxFun("POST", "/api/submit", question, "json", function(data){
+                if(data.status == "1"){
+                   console.log(question);
+                   _v.sectionChange("result"); 
+                }
+                pfun.formErrorTips(data.msg);
+                self.removeClass("disabled");
+            });
+
+        }
+    })
+
+
+    $(".formCon input").on("touchmove", function(e){
+        e.preventDefault();
+        return false;
+    })
+
+
+
+
+
+</script>
+
+</body>
+</html>

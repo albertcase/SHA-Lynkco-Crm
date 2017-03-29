@@ -1,0 +1,299 @@
+#dreambox{
+	width: 100%;
+	height: 100%;
+	background: $defaultBg;
+	position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.section{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    // overflow: hidden;
+
+    z-index: 2;
+
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.section .con{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+#index{
+    background: url("../img/bg1.jpg") center no-repeat;
+    background-size: 100% auto;
+}
+
+#q1{
+    background: url("../img/bg2.jpg") center no-repeat;
+    background-size: 100% auto;
+}
+
+#q2{
+    background: url("../img/bg3.jpg") center no-repeat;
+    background-size: 100% auto;
+}
+
+#q3{
+    background: url("../img/bg4.jpg") center no-repeat;
+    background-size: 100% auto;
+}
+
+#form{
+    background: url("../img/bg5.jpg") center no-repeat;
+    background-size: 100% auto;
+}
+
+#result{
+    background: url("../img/bg6.jpg") center no-repeat;
+    background-size: 100% auto;
+}
+
+.btn{
+    width: 50%;
+    height: 42px;
+    // background: rgba(23,56,67,.5);
+    position: absolute;
+    left: 50%; 
+    bottom: -1%;
+    margin: 0 0 0 -25%;
+    z-index: 2;
+}
+
+
+
+
+
+
+.indexText{
+    display: inline-block;
+    position: relative;
+}
+
+
+.questionCon, .formCon, .resultCon{
+    width: 100%;
+    position: relative;
+    display: inline-block;
+}
+
+.questionCon ul{
+    width: 60%;
+    height: 24%;
+    position: absolute;
+    left: 50%;
+    margin: 0 0 0 -30%;
+    bottom: 25%;
+    z-index: 2;
+}
+
+.questionCon ul li{
+    width: 100%;
+    height: 50%;
+    position: relative;
+    float: left;
+    display: inline-block;
+}
+
+.questionCon ul li:before{
+    content: "";
+    width: 12px;
+    height: 12px;
+    background: #72e4da;
+    border: 5px #00c4b3 solid;
+    border-radius: 100%;
+    position: absolute;
+    left: 5%;
+    top: 50%;
+    margin: -9px 0 0 0;
+}
+
+#q2 .questionCon ul li:before{
+    background: #f0909a;
+    border: 5px #ff495c solid;
+}
+
+.questionCon ul li.hover:before, #q2 .questionCon ul li.hover:before{
+    background: #fff;
+}
+
+
+.resultCon{
+    margin: -12% 0 0 0;
+}
+
+.formCon ul{
+    width: 61%;
+    height: 36%;
+    // background: rgba(56,78,123,.6);
+    position: absolute;
+    left: 50%;
+    top: 36%;
+    margin: 0 0 0 -30%;
+    z-index: 3;
+}
+
+.formCon ul li{
+    width: 100%;
+    height: 25%;
+    margin: 0 0 13% 0;
+    display: inline-block;
+}
+
+.formCon ul li input{
+    width: 100%;
+    height: 100%;
+    text-align:center;
+    font-size: 1.7rem;
+    color: #00c4b3;
+    // background: rgba(09,99,32,.6);
+    display: inline-block;
+}
+
+.formCon ul li input.code{
+    width: 59%;
+}
+
+.formCon ul li span{
+    width: 40%;
+    height: 100%;
+    text-align:center;
+    float: right;
+    color: #fff;
+    font-size: 1.2rem;
+    // display: inline-block;
+}
+
+.formCon ul li span em{
+    margin: 6% 0 0 0;
+    display: inline-block;
+}
+
+// .formCon ul li span:before{
+//     content: "点击获取";
+//     font-size: 1.4rem;
+//     display: inline-block;
+// }
+
+// .formCon ul li span.disabled:before{
+//     display: none;
+// }
+
+
+.telllink{
+    width: 32%;
+    height: 10%;
+    // background: rgba(23, 56, 79, 0.6);
+    position: absolute;
+    left: 50%;
+    bottom: 6%;
+    margin: 0 0 0 -16%;
+    z-index: 2;
+}
+
+
+.formCon{
+    margin: 0 0 15% 0;
+}
+
+.formContent{
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    position: absolute;
+    left: 0;
+    top: 0;
+    -webkit-overflow-scrolling: touch;
+    z-index: 2;
+}
+
+
+
+
+
+
+/*****************************
+* 常用
+*****************************/
+
+.ycenter{
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.hidden {
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.show {
+    display: inline-block;
+    visibility: visible;
+    opacity: 1;
+}
+
+.transition {
+    -webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1;
+    -webkit-animation-duration: .3s;
+    animation-duration: .3s;
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+
+
+
+
+/*****************************
+* 媒体查询
+*****************************/
+
+/* 6plus */
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: portrait) {
+
+}
+
+/* 6 */
+@media only screen and (min-device-width: 375px) and (max-device-width: 410px) and (orientation: portrait) {
+
+}
+
+/* 5s */
+@media handheld and (min-height:490px),screen and (max-height:510px) {
+
+}
+
+/* 4s */
+
+@media handheld and (min-height:400px),screen and (max-height:420px) {
+
+}
+
+
+
+

@@ -3,6 +3,6 @@
 .vagrant
 puppet/
 node_modules/
-build/src/
-build/gulpfile.js
+#build/src/
+#build/gulpfile.js
 test/
