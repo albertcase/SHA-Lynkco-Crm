@@ -148,12 +148,16 @@
     margin: -9px 0 0 0;
 }
 
-#q2 .questionCon ul li:before{
+#q2 .questionCon ul li:before,
+#q4 .questionCon ul li:before,
+#q6 .questionCon ul li:before,
+#q8 .questionCon ul li:before{
     background: #f0909a;
     border: 5px #ff495c solid;
 }
 
-.questionCon ul li.hover:before, #q2 .questionCon ul li.hover:before{
+.questionCon ul li.hover:before,
+#q2 .questionCon ul li.hover:before{
     background: #fff;
 }
 

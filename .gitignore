@@ -5,4 +5,3 @@ puppet/
 node_modules/
 #build/src/
 #build/gulpfile.js
-test/

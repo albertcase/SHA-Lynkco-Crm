@@ -50,7 +50,7 @@ function changePath(basePath){
 //Fonts & Images 根据MD5获取版本号
 gulp.task('revFont', function(){
     return gulp.src(fontSrc)
-        .pipe(rev())
+        //.pipe(rev())
         .pipe(gulp.dest(fontDest))
         .pipe(rev.manifest())
         .pipe(gulp.dest('src/rev/font'));
@@ -65,7 +65,7 @@ gulp.task('revImg', function(){
             svgoPlugins: [{removeViewBox: false}], //不要移除svg的viewbox属性
             use: [pngquant({quality: '60'})] //使用pngquant来压缩png图片
         })))
-        .pipe(rev())
+        //.pipe(rev())
         .pipe(gulp.dest(imgDest))
         .pipe(rev.manifest())
         .pipe(gulp.dest('src/rev/img'));
@@ -94,7 +94,7 @@ gulp.task('miniJs', function(){
         .pipe(gulpif(
             condition, uglify()
         ))
-        .pipe(rev())
+        //.pipe(rev())
         .pipe(gulp.dest(jsDest))
         .pipe(rev.manifest())
         .pipe(gulp.dest('src/rev/js'));
@@ -134,7 +134,7 @@ gulp.task('miniCss', function(){
                 compatibility: 'ie7'
             })
         ))
-        .pipe(rev())
+        //.pipe(rev())
         .pipe(gulpif(
                 condition, changed(cssDest)
         ))
