@@ -69,8 +69,8 @@
     <div class="section" id="q1">
         <div class="questionCon">
             <ul>
-                <li data-val="愿意"></li>
-                <li data-val="后续关注"></li>
+                <li data-val="十分愿意"></li>
+                <li data-val="不太看好"></li>
             </ul>
             <a href="javascript:void(0);" class="btn q1Btn"></a>
             <img src="/build/assets/img/q1.png" width="100%">
@@ -80,8 +80,8 @@
     <div class="section" id="q2">
         <div class="questionCon">
             <ul>
-                <li data-val="是的"></li>
-                <li data-val="暂时没有"></li>
+                <li data-val="享受私人时间"></li>
+                <li data-val="更爱朋友聚会"></li>
             </ul>
             <a href="javascript:void(0);" class="btn q2Btn"></a>
             <img src="/build/assets/img/q2.png" width="100%">
@@ -91,13 +91,86 @@
     <div class="section" id="q3">
         <div class="questionCon">
             <ul>
-                <li data-val="当然"></li>
-                <li data-val="以后再说"></li>
+                <li data-val="很感兴趣"></li>
+                <li data-val="不太了解"></li>
             </ul>
             <a href="javascript:void(0);" class="btn q3Btn"></a>
             <img src="/build/assets/img/q3.png" width="100%">
         </div>
     </div>
+
+    <!-- 你会想尝试蹦极吗？-->
+    <div class="section" id="q4">
+        <div class="questionCon">
+            <ul>
+                <li data-val="当然会"></li>
+                <li data-val="绝不去啊"></li>
+            </ul>
+            <a href="javascript:void(0);" class="btn q4Btn"></a>
+            <img src="/build/assets/img/q4.png" width="100%">
+        </div>
+    </div>
+
+    <!-- 你多久更新一次微博？-->
+    <div class="section" id="q5">
+        <div class="questionCon">
+            <ul>
+                <li data-val="每周一定会"></li>
+                <li data-val="一个月以上"></li>
+            </ul>
+            <a href="javascript:void(0);" class="btn q5Btn"></a>
+            <img src="/build/assets/img/q5.png" width="100%">
+        </div>
+    </div>
+
+    <!-- 你在旅行中会尝试Airbnb/途家这类房屋分享软件吗？-->
+    <div class="section" id="q6">
+        <div class="questionCon">
+            <ul>
+                <li data-val="会很愿意尝试"></li>
+                <li data-val="不会使用"></li>
+            </ul>
+            <a href="javascript:void(0);" class="btn q6Btn"></a>
+            <img src="/build/assets/img/q6.png" width="100%">
+        </div>
+    </div>
+
+    <!-- 你是否愿意将自己的汽车分享给家人和朋友？-->
+    <div class="section" id="q7">
+        <div class="questionCon">
+            <ul>
+                <li data-val="当然愿意"></li>
+                <li data-val="比较隐私，还是不了吧"></li>
+            </ul>
+            <a href="javascript:void(0);" class="btn q7Btn"></a>
+            <img src="/build/assets/img/q7.png" width="100%">
+        </div>
+    </div>
+
+    <!-- 你是否希望你的汽车自带WiFi可以上网？？-->
+    <div class="section" id="q8">
+        <div class="questionCon">
+            <ul>
+                <li data-val="应该会很有趣"></li>
+                <li data-val="恐怕会不安全"></li>
+            </ul>
+            <a href="javascript:void(0);" class="btn q8Btn"></a>
+            <img src="/build/assets/img/q8.png" width="100%">
+        </div>
+    </div>
+
+    <!-- 你是否愿意成为LYNK & CO品牌发布鉴行者并贡献自己的创新想法？-->
+    <div class="section" id="q9">
+        <div class="questionCon">
+            <ul>
+                <li data-val="迫不及待"></li>
+                <li data-val="这可能不是我的强项"></li>
+            </ul>
+            <a href="javascript:void(0);" class="btn q9Btn"></a>
+            <img src="/build/assets/img/q9.png" width="100%">
+        </div>
+    </div>
+
 
     <div class="section" id="form">
         <div class="formContent">
@@ -149,6 +222,12 @@
         q1: "",
         q2: "",
         q3: "",
+        q4: "",
+        q5: "",
+        q6: "",
+        q7: "",
+        q8: "",
+        q9: "",
         name: "",
         tel: "",
         code: ""
@@ -221,9 +300,64 @@
             pfun.formErrorTips("请选择问题的答案，此题为必选!");
         }else{
             console.log(question);
+            _v.sectionChange("q4");
+        }
+    });
+
+    $(".q4Btn").on("click", function(){
+        if(!question['q4']){
+            pfun.formErrorTips("请选择问题的答案，此题为必选!");
+        }else{
+            console.log(question);
+            _v.sectionChange("q5");
+        }
+    });
+
+    $(".q5Btn").on("click", function(){
+        if(!question['q5']){
+            pfun.formErrorTips("请选择问题的答案，此题为必选!");
+        }else{
+            console.log(question);
+            _v.sectionChange("q6");
+        }
+    });
+
+    $(".q6Btn").on("click", function(){
+        if(!question['q6']){
+            pfun.formErrorTips("请选择问题的答案，此题为必选!");
+        }else{
+            console.log(question);
+            _v.sectionChange("q7");
+        }
+    });
+
+    $(".q7Btn").on("click", function(){
+        if(!question['q7']){
+            pfun.formErrorTips("请选择问题的答案，此题为必选!");
+        }else{
+            console.log(question);
+            _v.sectionChange("q8");
+        }
+    });
+
+    $(".q8Btn").on("click", function(){
+        if(!question['q8']){
+            pfun.formErrorTips("请选择问题的答案，此题为必选!");
+        }else{
+            console.log(question);
+            _v.sectionChange("q9");
+        }
+    });
+
+    $(".q9Btn").on("click", function(){
+        if(!question['q9']){
+            pfun.formErrorTips("请选择问题的答案，此题为必选!");
+        }else{
+            console.log(question);
             _v.sectionChange("form");
         }
-    })
+    });
+
 
 
     // 发送验证码

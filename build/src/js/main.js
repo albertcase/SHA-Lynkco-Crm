@@ -22,7 +22,7 @@ function vFun(){
         }
 
         $(".section").removeClass("show transition");
-        $("#" + n).addClass('show transition');  
+        $("#" + n).addClass('show transition');
     }
 
 
