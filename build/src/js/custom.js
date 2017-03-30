@@ -40,13 +40,13 @@ var shareArr = {
 var pfun = {
     init: function(){
         var self = this;
-        //self.wxshareFun();
-        self.ajaxFun("POST", "/jssdk", {
-            url: shareArr['_url']
-        }, "json", function(data){
-            console.log(data);
-            self.wechatFun(data.appId, data.timestamp, data.nonceStr, data.signature);
-        });
+        self.wxshareFun();
+        //self.ajaxFun("POST", "/jssdk", {
+        //    url: shareArr['_url']
+        //}, "json", function(data){
+        //    console.log(data);
+        //    self.wechatFun(data.appId, data.timestamp, data.nonceStr, data.signature);
+        //});
     },
     loadFn: function(arr , fn , fn2){
         var loader = new PxLoader();
