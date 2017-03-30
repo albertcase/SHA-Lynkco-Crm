@@ -134,31 +134,41 @@
     float: left;
     display: inline-block;
 }
+.questionCon{
+    ul{
+        li{
+            &:before{
+                content: "";
+                width: 12px;
+                height: 12px;
+                background: #72e4da;
+                border: 5px #00c4b3 solid;
+                border-radius: 100%;
+                position: absolute;
+                left: 5%;
+                top: 50%;
+                margin: -9px 0 0 0;
+            }
+            &.hover:before{
+                background: #fff;
+            }
+        }
+    }
+    &.redhover{
+        ul{
+            li{
+                &:before{
+                    background: #f0909a;
+                    border: 5px #ff495c solid;
+                }
+                &.hover:before{
+                    background: #fff;
+                }
+            }
 
-.questionCon ul li:before{
-    content: "";
-    width: 12px;
-    height: 12px;
-    background: #72e4da;
-    border: 5px #00c4b3 solid;
-    border-radius: 100%;
-    position: absolute;
-    left: 5%;
-    top: 50%;
-    margin: -9px 0 0 0;
-}
+        }
 
-#q2 .questionCon ul li:before,
-#q4 .questionCon ul li:before,
-#q6 .questionCon ul li:before,
-#q8 .questionCon ul li:before{
-    background: #f0909a;
-    border: 5px #ff495c solid;
-}
-
-.questionCon ul li.hover:before,
-#q2 .questionCon ul li.hover:before{
-    background: #fff;
+    }
 }
 
 
