@@ -29,7 +29,7 @@
 }());
 
 var shareArr = {
-    "_title": 'LYNK & CO 鉴行者', //分享标题
+    "_title": 'LINK & CO CITIZEN/粉丝', //分享标题
     "_desc": "您的每一步，都是别人的下一步 ",    // 分享朋友圈的描述
     "_desc_friend": "您的每一步，都是别人的下一步 ",    // 分享好友的描述
     "_link": window.location.href,    //分享的连接
